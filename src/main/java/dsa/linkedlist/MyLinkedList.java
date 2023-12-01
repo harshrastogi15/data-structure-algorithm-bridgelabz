@@ -14,6 +14,19 @@ public class MyLinkedList {
         }
         if(this.head == null){
             this.head = node;
+        }else{
+            Node temp = head;
+            head = node;
+            head.setNext(temp);
         }
     }
+
+    public void printList(){
+        Node temp = head;
+        while(temp!=null){
+            System.out.println(temp.getData());
+            temp = temp.getNext();
+        }
+    }
+
 }

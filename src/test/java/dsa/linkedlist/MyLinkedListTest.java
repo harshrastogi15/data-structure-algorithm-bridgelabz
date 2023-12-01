@@ -10,7 +10,10 @@ public class MyLinkedListTest {
         Node<Integer> node2 = new Node<>(30);
         Node<Integer> node3 = new Node<>(70);
         MyLinkedList list = new MyLinkedList();
+        list.addNode(node3);
+        list.addNode(node2);
         list.addNode(node1);
+        list.printList();
 
     }
 
