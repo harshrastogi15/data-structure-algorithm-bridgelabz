@@ -9,10 +9,13 @@ public class MyLinkedListTest {
         Node<Integer> node1 = new Node<>(56);
         Node<Integer> node2 = new Node<>(30);
         Node<Integer> node3 = new Node<>(70);
+        Node<Integer> node4 = new Node<>(120);
+
         MyLinkedList list = new MyLinkedList();
         list.addNode(node3);
         list.addNode(node2);
         list.addNode(node1);
+        list.appendNode(node4);
         list.printList();
 
     }
