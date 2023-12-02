@@ -34,6 +34,25 @@ public class MyLinkedList {
         }
     }
 
+    public void insertNode(Node prev, Node inserted){
+        Node temp = prev.getNext();
+        prev.setNext(inserted);
+        inserted.setNext(temp);
+    }
+
+    public void pop(){
+        head = head.getNext();
+    }
+
+    public void popLast(){
+        Node temp=head;
+        while((temp.getNext() != null) &&  (temp.getNext().getNext()!=null)){
+            temp = temp.getNext();
+        }
+        tail = temp;
+        temp.setNext(null);
+    }
+
     public void printList(){
         Node temp = head;
         while(temp!=null){
