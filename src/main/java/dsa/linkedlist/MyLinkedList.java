@@ -3,7 +3,7 @@ package dsa.linkedlist;
 public class MyLinkedList<T> {
     public Node head;
     public Node tail;
-    MyLinkedList(){
+    public MyLinkedList(){
         this.head = null;
         this.tail = null;
     }
