@@ -1,14 +1,15 @@
 package dsa.linkedlist;
 
-public class MyLinkedList<T> {
+public class SortedLinkedList <T>{
     public Node head;
     public Node tail;
-    MyLinkedList(){
+    SortedLinkedList(){
         this.head = null;
         this.tail = null;
     }
 
-    public void addNode(Node node){
+    public void addNode(Integer data){
+        Node<Integer> node = new Node<>(data);
         if(this.tail == null){
             this.tail = node;
         }
@@ -16,25 +17,27 @@ public class MyLinkedList<T> {
             this.head = node;
         }else{
             Node temp = head;
-            head = node;
-            head.setNext(temp);
+            Node prev = null;
+            while(temp!=null){
+                Integer val = (Integer) temp.getData();
+                if(val > data){
+                    break;
+                }
+                prev = temp;
+                temp = temp.getNext();
+            }
+            if(prev == null){
+                prev = head;
+                head = node;
+                head.setNext(prev);
+            }else{
+                insertNode(prev,node);
+            }
         }
     }
 
-    public void appendNode(Node node){
-        if(this.head == null){
-            this.head = node;
-        }
-        if(this.tail == null){
-            this.tail = node;
-        }else{
-            Node temp = tail;
-            tail = node;
-            temp.setNext(tail);
-        }
-    }
 
-    public void insertNode(Node prev, Node inserted){
+    private void insertNode(Node prev, Node inserted){
         Node temp = prev.getNext();
         prev.setNext(inserted);
         inserted.setNext(temp);

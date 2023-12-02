@@ -18,9 +18,30 @@ public class MyLinkedListTest {
         list.addNode(node1);
         list.appendNode(node4);
         list.insertNode(node3,node5);
-        list.pop();
-        list.popLast();
+//        list.pop();
+//        list.popLast();
         list.printList();
+
+        Node find = list.searchNode(30);
+        if(find != null){
+            System.out.println("Not Found");
+        }else{
+            find.getData();
+        }
+
+    }
+
+    @Test
+    public void createSortedLinkedList(){
+        SortedLinkedList sortList = new SortedLinkedList();
+
+        sortList.addNode(4);
+        sortList.addNode(10);
+        sortList.addNode(5);
+        sortList.addNode(2);
+        sortList.addNode(40);
+
+        sortList.printList();
 
     }
 
