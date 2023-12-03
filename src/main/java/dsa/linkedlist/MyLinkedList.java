@@ -8,7 +8,7 @@ public class MyLinkedList<T> {
         this.tail = null;
     }
 
-    public void addNode(Node node){
+    public void addNode(INode<T> node){
         if(this.tail == null){
             this.tail = node;
         }
@@ -21,7 +21,7 @@ public class MyLinkedList<T> {
         }
     }
 
-    public void appendNode(Node node){
+    public void appendNode(INode<T> node){
         if(this.head == null){
             this.head = node;
         }
@@ -34,7 +34,7 @@ public class MyLinkedList<T> {
         }
     }
 
-    public void insertNode(Node prev, Node inserted){
+    public void insertNode(INode<T> prev, INode<T> inserted){
         INode<T> temp = prev.getNext();
         prev.setNext(inserted);
         inserted.setNext(temp);
@@ -56,8 +56,8 @@ public class MyLinkedList<T> {
     public INode<T> searchNode(T data){
         INode<T> temp = head;
         while(temp!=null){
-            if(temp.getData() == data){
-                System.out.println(temp.getData());
+            T val = temp.getData();
+            if(val == data){
                 break;
             }
             temp = temp.getNext();
@@ -73,4 +73,7 @@ public class MyLinkedList<T> {
         }
     }
 
+    public String toString(){
+        return "MyLinkedList {" + head + " }";
+    }
 }

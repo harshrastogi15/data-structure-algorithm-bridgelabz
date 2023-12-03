@@ -29,4 +29,16 @@ public class MapNode<K,V> implements INode<K> {
     public V getVal(){
         return this.val;
     }
+    public void setVal(V val){
+        this.val = val;
+    }
+
+    public String toString(){
+        StringBuilder str = new StringBuilder();
+        str.append("Node{" + "Key=").append(key).append("}");
+        if(next != null){
+            str.append("->").append(next);
+        }
+        return str.toString();
+    }
 }
