@@ -1,26 +1,26 @@
 package dsa.linkedlist;
 
-public class SortedLinkedList <T>{
-    public Node head;
-    public Node tail;
+public class SortedLinkedList <T extends Comparable>{
+    public INode<T> head;
+    public INode<T> tail;
     SortedLinkedList(){
         this.head = null;
         this.tail = null;
     }
 
-    public void addNode(Integer data){
-        Node<Integer> node = new Node<>(data);
+    public void addNode(T data){
+        INode<T> node = new Node<>(data);
         if(this.tail == null){
             this.tail = node;
         }
         if(this.head == null){
             this.head = node;
         }else{
-            Node temp = head;
-            Node prev = null;
+            INode<T> temp = head;
+            INode<T> prev = null;
             while(temp!=null){
-                Integer val = (Integer) temp.getData();
-                if(val > data){
+                T val = (T) temp.getData();
+                if( val.compareTo(data) >0 ){
                     break;
                 }
                 prev = temp;
@@ -37,8 +37,8 @@ public class SortedLinkedList <T>{
     }
 
 
-    private void insertNode(Node prev, Node inserted){
-        Node temp = prev.getNext();
+    private void insertNode(INode<T> prev, INode<T> inserted){
+        INode<T> temp = prev.getNext();
         prev.setNext(inserted);
         inserted.setNext(temp);
     }
@@ -48,7 +48,7 @@ public class SortedLinkedList <T>{
     }
 
     public void popLast(){
-        Node temp=head;
+        INode<T> temp=head;
         while((temp.getNext() != null) &&  (temp.getNext().getNext()!=null)){
             temp = temp.getNext();
         }
@@ -56,8 +56,8 @@ public class SortedLinkedList <T>{
         temp.setNext(null);
     }
 
-    public Node searchNode(T data){
-        Node temp = head;
+    public INode<T> searchNode(T data){
+        INode<T> temp = head;
         while(temp!=null){
             if(temp.getData() == data){
                 System.out.println(temp.getData());
@@ -69,7 +69,7 @@ public class SortedLinkedList <T>{
     }
 
     public void printList(){
-        Node temp = head;
+        INode<T> temp = head;
         while(temp!=null){
             System.out.println(temp.getData());
             temp = temp.getNext();

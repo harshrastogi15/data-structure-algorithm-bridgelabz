@@ -12,7 +12,7 @@ public class MyLinkedListTest {
         Node<Integer> node4 = new Node<>(120);
         Node<Integer> node5 = new Node<>(10);
 
-        MyLinkedList list = new MyLinkedList();
+        MyLinkedList<Integer> list = new MyLinkedList();
         list.addNode(node3);
         list.addNode(node2);
         list.addNode(node1);
@@ -22,7 +22,7 @@ public class MyLinkedListTest {
 //        list.popLast();
         list.printList();
 
-        Node find = list.searchNode(30);
+        INode<Integer> find = list.searchNode(30);
         if(find != null){
             System.out.println("Not Found");
         }else{

@@ -1,8 +1,8 @@
 package dsa.linkedlist;
 
 public class MyLinkedList<T> {
-    public Node head;
-    public Node tail;
+    public INode<T> head;
+    public INode<T> tail;
     public MyLinkedList(){
         this.head = null;
         this.tail = null;
@@ -15,7 +15,7 @@ public class MyLinkedList<T> {
         if(this.head == null){
             this.head = node;
         }else{
-            Node temp = head;
+            INode<T> temp = head;
             head = node;
             head.setNext(temp);
         }
@@ -28,14 +28,14 @@ public class MyLinkedList<T> {
         if(this.tail == null){
             this.tail = node;
         }else{
-            Node temp = tail;
+            INode<T> temp = tail;
             tail = node;
             temp.setNext(tail);
         }
     }
 
     public void insertNode(Node prev, Node inserted){
-        Node temp = prev.getNext();
+        INode<T> temp = prev.getNext();
         prev.setNext(inserted);
         inserted.setNext(temp);
     }
@@ -45,7 +45,7 @@ public class MyLinkedList<T> {
     }
 
     public void popLast(){
-        Node temp=head;
+        INode<T> temp=head;
         while((temp.getNext() != null) &&  (temp.getNext().getNext()!=null)){
             temp = temp.getNext();
         }
@@ -53,8 +53,8 @@ public class MyLinkedList<T> {
         temp.setNext(null);
     }
 
-    public Node searchNode(T data){
-        Node temp = head;
+    public INode<T> searchNode(T data){
+        INode<T> temp = head;
         while(temp!=null){
             if(temp.getData() == data){
                 System.out.println(temp.getData());
@@ -66,7 +66,7 @@ public class MyLinkedList<T> {
     }
 
     public void printList(){
-        Node temp = head;
+        INode<T> temp = head;
         while(temp!=null){
             System.out.println(temp.getData());
             temp = temp.getNext();

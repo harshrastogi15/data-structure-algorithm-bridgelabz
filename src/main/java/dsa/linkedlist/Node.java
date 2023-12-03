@@ -1,8 +1,8 @@
 package dsa.linkedlist;
 
-public class Node<T> {
+public class Node<T> implements INode<T>{
     private T data;
-    private Node next;
+    private INode<T> next;
 
     public Node(){
         this.data = null;
@@ -15,11 +15,11 @@ public class Node<T> {
     }
 
 
-    public void setNext(Node next){
-        this.next = next;
+    public void setNext(INode<T> next){
+        this.next = (Node<T>) next;
     }
 
-    public Node getNext(){
+    public INode<T> getNext(){
         return this.next;
     }
 
